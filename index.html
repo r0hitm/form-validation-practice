@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation using JavaScript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .form-field label {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+        }
+
+        .form-field input:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .form-field .error {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+
+<body class="w-screen h-screen flex justify-center items-center -translate-y-[100px]">
+    <form action="#" class="w-1/3 h-1/3" novalidate>
+        <div class="form-field">
+            <label for="email">Email*</label>
+            <input type="email" name="email" id="email" required />
+            <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="form-field">
+            <label for="country">Country*</label>
+            <input type="text" name="country" id="country" required />
+            <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="form-field">
+            <label for="zip">Zip Code</label>
+            <!-- assuming zip codes cannot go over 10 characters -->
+            <input type="text" name="zip" id="zip" maxlength="10" />
+            <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="form-field">
+            <label for="password">Password*</label>
+            <input type="password" name="password" id="password" required minlength="8" />
+            <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="form-field">
+            <label for="password2">Confirm Password*</label>
+            <input type="password" name="password2" id="password2" required minlength="8" />
+            <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="form-field">
+            <button class="bg-blue-500 hover:bg-blue-200 p-3 rounded font-medium text-xl text-white w-1/2 m-auto"
+                type="submit">Submit</button>
+        </div>
+    </form>
+    <script src="form.js"></script>
+</body>
+
+</html>
